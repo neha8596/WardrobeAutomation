@@ -4,12 +4,13 @@
 import os
 import random
 import tkinter as tk
+from tkinter import *
 from PIL import Image, ImageTk
 from playsound import playsound
 
 WINDOW_TITLE = "My Wardrobe"
 WINDOW_WIDTH = "500"
-WINDOW_HEIGHT = "650"
+WINDOW_HEIGHT = "690"
 IMG_WIDTH = 250
 IMG_HEIGHT = 250
 # store all tops into a file to access it and skip all hidden files
@@ -49,6 +50,7 @@ class Wardrobe:
         self.top_image_label = self.create_photo(self.top_image_path, self.top_frame)
         self.bottom_image_label = self.create_photo(self.bottom_image_path, self.top_frame)
         self.top_title = tk.Message(self.top_frame, text="OUTFITS", width=100, foreground="White", background="wheat4")
+        self.top_title.configure(font=("Times New Roman", 12, "bold underline"))
 
         # add it to pack
         self.top_image_label.grid(row=1, column=1, pady=13)
@@ -68,18 +70,23 @@ class Wardrobe:
 
     def create_buttons(self):
         top_prev_button_top = tk.Button(self.top_frame, text="Prev", command=self.get_prev_top)
+        top_prev_button_top.configure(font=("Times New Roman", 12, "bold"))
         top_prev_button_top.grid(row=2, column=0)
 
         top_next_button_top = tk.Button(self.top_frame, text="Next", command=self.get_next_top)
+        top_next_button_top.configure(font=("Times New Roman", 12, "bold"))
         top_next_button_top.grid(row=2, column=2)
 
         generate_outfit_button = tk.Button(self.top_frame, text="Generate outfit", command=self.get_next_outfit)
+        generate_outfit_button.configure(font=("Times New Roman", 12, "bold"))
         generate_outfit_button.grid(row=2, column=1)
 
         top_prev_button_bottom = tk.Button(self.top_frame, text="Prev", command=self.get_prev_bottom)
+        top_prev_button_bottom.configure(font=("Times New Roman", 12, "bold"))
         top_prev_button_bottom.grid(row=5, column=0, pady=10)
 
         top_next_button_bottom = tk.Button(self.top_frame, text="Next", command=self.get_next_bottom)
+        top_next_button_bottom.configure(font=("Times New Roman", 12, "bold"))
         top_next_button_bottom.grid(row=5, column=2, pady=10)
 
     def get_next_item(self, current_item, category, increment=True):
